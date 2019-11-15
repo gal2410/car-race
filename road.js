@@ -5,7 +5,7 @@ $(document).ready(function(){
 function start(){
 
     var car1 = new Car( {x:1600,y:410} , "green","left.1.png");
-    var car2 = new Car( {x:1800,y:620} , "red","left.2.png");
+    var car2 = new Car( {x:1600,y:620} , "red","left.2.png");
     var car3 = new Car( {x:-100,y:-25}, "green","right.1.png");
     var car4 = new Car({x:-100,y:180}  , "red","right.2.png");
 
@@ -23,16 +23,21 @@ function start(){
     
     var myVar = setInterval(() => {
        if(car3.location.x<1300){
-        car3.move( car3.location.x + 31.5 , car3.location.y + 0 );
-        car4.move( car4.location.x + 30 , car4.location.y + 0 );
-       }else if(car3.location.x >= 1300 && car1.location.x > 150){
+        car3.move( car3.location.x + Math.random() * 38 , car3.location.y + 0 );
+        car4.move( car4.location.x + Math.random() * 38 , car4.location.y + 0 );
+       }else if(car3.location.x >= 1300 && car1.location.x > 150 ){
         car3.move( car3.location.x = 2000, car3.location.y + 0 );
         car4.move( car4.location.x = 2000, car4.location.y + 0 );
-        car1.move( car1.location.x - 30 , car1.location.y + 0 );
-        car2.move( car2.location.x - 36 , car2.location.y + 0 );
+        car1.move( car1.location.x - Math.random() * 38 , car1.location.y + 0 );
+        car2.move( car2.location.x - Math.random() * 38 , car2.location.y + 0 );
         console.log(car2.location.x)
-      }else {
+      }else if(car2.location.x < 150){
         alert("The winner is the red car!!!")
+        car1.move( car1.location.x = 0 , car1.location.y + 0 );
+        car2.move( car2.location.x = 0 , car2.location.y + 0 );
+        myStopFunction()
+      }else if(car1.location.x < 150){
+        alert("The winner is the green car!!!")
         car1.move( car1.location.x = 0 , car1.location.y + 0 );
         car2.move( car2.location.x = 0 , car2.location.y + 0 );
         myStopFunction()
