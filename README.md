@@ -10,5 +10,5 @@ A lucky race Between the red and green car!
 
 So start putting the bets
 
-And have fun 
+
 
