@@ -10,6 +10,13 @@ function start(){
     alertBox.parentNode.removeChild(alertBox);
     alertClose.parentNode.removeChild(alertClose);
 }
+function closeAlertBox2() {
+  alertBox = document.getElementById("alertBox2");
+  alertClose = document.getElementById("alertClose");
+
+  alertBox.parentNode.removeChild(alertBox);
+  alertClose.parentNode.removeChild(alertClose);
+}
 
 window.alert1 = function (msg) {
     var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
@@ -31,7 +38,7 @@ window.alert2 = function (msg) {
   alertClose = document.createElement("div");
   alertClose.id = closeId;
   document.body.appendChild(alertClose);
-  alertClose.onclick = closeAlertBox;
+  alertClose.onclick = closeAlertBox2;
 };
     var car1 = new Car( {x:1600,y:410} , "green","left.1.png");
     var car2 = new Car( {x:1600,y:620} , "red","left.2.png");
