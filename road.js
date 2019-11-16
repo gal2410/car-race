@@ -1,9 +1,38 @@
 $(document).ready(function(){
-
+ 
     });
 
 function start(){
+  function closeAlertBox() {
+    alertBox = document.getElementById("alertBox");
+    alertClose = document.getElementById("alertClose");
 
+    alertBox.parentNode.removeChild(alertBox);
+    alertClose.parentNode.removeChild(alertClose);
+}
+
+window.alert1 = function (msg) {
+    var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
+    alertBox = document.createElement("div");
+    document.body.appendChild(alertBox);
+    alertBox.id = id;
+    alertBox.innerHTML = msg;
+    alertClose = document.createElement("div");
+    alertClose.id = closeId;
+    document.body.appendChild(alertClose);
+    alertClose.onclick = closeAlertBox;
+};
+window.alert2 = function (msg) {
+  var id = "alertBox2", alertBox, closeId = "alertClose", alertClose;
+  alertBox = document.createElement("div");
+  document.body.appendChild(alertBox);
+  alertBox.id = id;
+  alertBox.innerHTML = msg;
+  alertClose = document.createElement("div");
+  alertClose.id = closeId;
+  document.body.appendChild(alertClose);
+  alertClose.onclick = closeAlertBox;
+};
     var car1 = new Car( {x:1600,y:410} , "green","left.1.png");
     var car2 = new Car( {x:1600,y:620} , "red","left.2.png");
     var car3 = new Car( {x:-100,y:-25}, "green","right.1.png");
@@ -30,14 +59,18 @@ function start(){
         car4.move( car4.location.x = 2000, car4.location.y + 0 );
         car1.move( car1.location.x - Math.random() * 38 , car1.location.y + 0 );
         car2.move( car2.location.x - Math.random() * 38 , car2.location.y + 0 );
-        console.log(car2.location.x)
+        console.log('green:' + car1.location.x)
+        console.log('red:' + car2.location.x)
+
       }else if(car2.location.x < 150){
-        alert("The winner is the red car!!!")
+        alert1('The winner is the red car!!!')
+        // alert("The winner is the red car!!!")
         car1.move( car1.location.x = 0 , car1.location.y + 0 );
         car2.move( car2.location.x = 0 , car2.location.y + 0 );
         myStopFunction()
       }else if(car1.location.x < 150){
-        alert("The winner is the green car!!!")
+        alert2("The winner is the green car!!!")
+        // alert("The winner is the green car!!!")
         car1.move( car1.location.x = 0 , car1.location.y + 0 );
         car2.move( car2.location.x = 0 , car2.location.y + 0 );
         myStopFunction()
@@ -55,5 +88,4 @@ function printAll(objects){
     for( var i = 0; i< objects.length ; i++ ){
         $(".road").append(objects[i].printToScreen());
     }
-  
 }
