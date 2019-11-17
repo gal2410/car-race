@@ -7,6 +7,7 @@
     background-image: url('images/road.png');
     background-size: cover;
 }
+
 .road img{
     max-width:250px;
 }
@@ -27,7 +28,6 @@
     margin-left: -80px;
   }
   
-
   #alertBox {
 	position: absolute;
 	top: 30%;
@@ -71,12 +71,4 @@
 	height: 100%;
 }
 
-#i {
-	position: absolute;
-	right: 0;
-	top: 0;
-	background-color: rgba(0, 0, 0, .5);
-	width: 100%;
-	height: 100%;
-}
 
